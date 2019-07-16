@@ -1,0 +1,212 @@
+:root {
+  --white: rgba(254, 254, 254, 0.65);
+  --blue: rgba(175, 218, 255, 0.65);
+  --red: rgba(255, 160, 160, 0.65);
+  --green: rgba(166, 255, 172, 0.65);
+  --yellow: rgba(247, 255, 175, 0.65);
+  --mobile: 360px;
+}
+
+@font-face {
+  font-family: "Eraser";
+  src: url("../fonts/EraserDust.ttf")
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("../images/chalkboard-background.jpg");
+  background-size: auto;
+  background-attachment: fixed;
+  margin-top: .5rem;
+  color: var(--white);
+  font-family: 'Eraser';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2rem;
+}
+
+.body__container {
+  display: grid;
+  grid-template-columns: auto 750px auto;
+  grid-template-rows: 70px 340px auto auto;
+  grid-row-gap: 20px;
+  grid-template-areas: 
+    '. nav .'
+    '. hangman .'
+    '. puzzle .'
+    '. info .';
+  justify-items: center;
+  align-self: center;
+}
+
+.navbar {
+  grid-area: nav;
+  display: grid;
+  grid-template-columns: 100px 350px 300px;
+  grid-template-areas: 'score title config';
+}
+
+.navbar__score {
+  width: 100px;
+  height: 70px;
+  background: url('./images/score-box.png');
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    'label'
+    'num';
+}
+
+.score__label {
+  font-size: 1.8rem;
+  align-self: end;
+  justify-self: center;
+}
+
+.score__num {
+  align-self: start;
+  justify-self: center;
+  margin-right: 1rem;
+  color: var(--yellow);
+}
+
+.navbar__title {
+  grid-area: title;
+  font-size: 5rem;
+  margin: -.6rem;
+  align-self: start;
+  justify-self: center;
+}
+
+.navbar__config {
+  grid-area: config;
+  width: 300px;
+  height: 70px;
+  background: url('./images/config-box.png');
+  display: grid;
+  grid-template-columns: 150px 50px 100px;
+  grid-template-rows: 35px 35px;
+  grid-template-areas: 
+    'words-label words-drop  new'
+    'guesses-label guesses-drop new';
+}
+
+.config__words {
+  grid-area: words-drop;
+  align-self: end;
+  justify-self: center;
+}
+
+.config__words--label {
+  grid-area: words-label;
+  align-self: end;
+  justify-self: end;
+}
+
+.config--select {
+  background: var(--white);
+  border: 0;
+  border-radius: .5rem;
+  margin-bottom: .2rem;
+  font: inherit;
+  font-size: 1.5rem;
+  color: black;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+}
+
+.config__guesses {
+  grid-area: guesses-drop;
+  align-self: start;
+  justify-self: center;
+}
+
+.config__guesses--label {
+  grid-area: guesses-label;
+  align-self: start;
+  justify-self: end;
+}
+
+.config__new-game {
+  grid-area: new;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+}
+
+.config__new-game:hover {
+  color: var(--green);
+  cursor: pointer;
+}
+
+.hangman-graphic {
+  width: 400px;
+  height: 340px;
+  grid-area: hangman;
+  background: url('../images/hangman.png') bottom center;
+}
+
+.puzzle-letters {
+  grid-area: puzzle;
+}
+
+.words {
+  display: flex;
+  max-width: 750px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.word {
+  display: flex;
+  padding: 0 .75rem;
+  padding-bottom: 1rem;
+}
+
+.letter {
+  border-bottom: 3px solid var(--white);
+  display: inline-block;
+  font-size: 3.5rem;
+  line-height: 3rem;
+  width: 2.2rem;
+  height: 3rem;
+  margin: 0 .2rem;
+  text-align: center;
+}
+
+.game-info {
+  grid-area: info;
+  justify-self: start;
+}
+
+.guessed-letters {
+  padding-bottom: 10px;
+}
+
+
+@media (max-width: 750px) {
+  body {
+    font-size: 1.5em;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: auto 750px auto;
+    grid-template-rows: 100px 340px auto auto;
+    grid-row-gap: 20px;
+    grid-template-areas: 
+      '. nav .'
+      '. hangman .'
+      '. puzzle .'
+      '. info .';
+    justify-items: center;
+    align-self: center;
+  }
+}
