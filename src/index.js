@@ -1,5 +1,6 @@
 'use strict'
 
+import 'babel-polyfill'
 import getPuzzle from "./requests"
 import config from "./config"
 import Hangman from "./hangman"
