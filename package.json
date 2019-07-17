@@ -5,8 +5,7 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js",
-    "test-prod": "live-server --open=./public/index.html"
+    "build": "webpack --config webpack.prod.js"
   },
   "author": "Thomas Kelley",
   "license": "ISC",
